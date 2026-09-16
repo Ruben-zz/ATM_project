@@ -1,57 +1,62 @@
 package atm_api;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 public class BankAccount {
-	public BankAccount(String owner, double accountBalance) {
-		
 	
-		this.owner = owner.toUpperCase().strip();;
-		
-		this.accountBalance = accountBalance;
-	}
-	
-	
-	
-	
-	private double accountBalance;
-	
+	private UUID uuid;
+
+	private BigDecimal accountBalance;
+
 	private String owner;
+
+	
+	public BankAccount(String owner, double accountBalance) {
+
+		this.owner = owner.toUpperCase().strip();
+
+		this.accountBalance = BigDecimal.valueOf(accountBalance);
+	}
+
 	
 	public String getOwner() {
 		return owner;
 	}
-	
-	
+
+	public UUID getUUID() {
+
+		return uuid;
+
+	}
+
 	public boolean depositFunds(double amount) {
-		
+
 		if (amount <= 0) {
 			return false;
-		}
-		else {
-			accountBalance += amount;
+		} else {
+			accountBalance = accountBalance.add(BigDecimal.valueOf(amount));
+			uuid = UUID.randomUUID();
 			return true;
 		}
-		
+
 	}
-	
-	public double getAccountBalance() {
+
+	public BigDecimal getAccountBalance() {
 		return accountBalance;
-		
+
 	}
-	
-	
-	
+
 	public boolean withdrawFunds(double amount) {
-		if(amount > accountBalance || amount <= 0) {
+		BigDecimal amountBD = BigDecimal.valueOf(amount);
+		if (amountBD.compareTo(accountBalance) > 0 || amount <= 0) {
 			return false;
-		}
-		else {
-			accountBalance -= amount;
+		} else {
+			accountBalance = accountBalance.subtract(amountBD);
+			uuid = UUID.randomUUID();
 			return true;
 		}
-		
-		
+
 	}
-	
-	
-	
+
 }
