@@ -14,6 +14,8 @@ public class MainAtm {
 
 		int menuOption = 0;
 
+		//int accountOptionsMenu; 
+		
 		String exitProgram = "N";
 
 		// add the Scanner method from java.util.
@@ -27,9 +29,30 @@ public class MainAtm {
 
 		System.out.println("Enter the opening balance.");
 		double balance = Double.parseDouble(scan.nextLine());
-
-		BankAccount account = new BankAccount(name, balance);
-
+		
+		/*System.out.println("Choose the account type");
+		System.out.println("1.Savings account");
+		System.out.println("2.Checking account");
+		accountOptionsMenu = Integer.parseInt(scan.nextLine());
+		
+		if(accountOptionsMenu == 1) {
+			SavingAccount account = new SavingAccount(name, balance, 2);
+			account.applyInterest();
+		}
+		else if(accountOptionsMenu == 2){
+			CheckingAccount account = new CheckingAccount(name, balance,50);
+		}
+		else {
+			System.err.println("ERROR!");
+		}*/
+				
+			
+		SavingAccount account = new SavingAccount(name, balance, 2);
+		account.applyInterest();
+		
+		
+		
+		
 		AuthService authPin = new AuthService();
 
 		// loop to verify the PIN

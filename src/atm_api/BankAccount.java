@@ -5,11 +5,11 @@ import java.util.UUID;
 
 public class BankAccount {
 	
-	private UUID uuid;
+	protected UUID uuid;
 
-	private BigDecimal accountBalance;
+	protected BigDecimal accountBalance;
 
-	private String owner;
+	protected String owner;
 
 	
 	public BankAccount(String owner, double accountBalance) {
