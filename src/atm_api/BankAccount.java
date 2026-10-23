@@ -20,7 +20,7 @@ public class BankAccount {
 	}
 
 	
-	public String getOwner() {
+	public final String getOwner() {
 		return owner;
 	}
 

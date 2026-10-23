@@ -6,6 +6,7 @@ public class AuthService {
 	
 	private int pin;
 	
+	
 	public AuthService() {
 		pin = 1234;
 	}
@@ -16,4 +17,7 @@ public class AuthService {
 		return this.pin == inputPin;
 
 	}
+	
+
+	
 }
